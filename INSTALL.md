@@ -35,11 +35,6 @@ cp SKILL.md ~/.claude/skills/smskub-sms/SKILL.md
 วาง [`AGENTS.md`](AGENTS.md) ไว้ root repo. Codex อ่าน `AGENTS.md` เป็น instruction อัตโนมัติ.
 ต่อ MCP ผ่าน `~/.codex/config.toml` ส่วน `[mcp_servers]` — ดู `mcp/SETUP.md`.
 
-## Cursor / Crosscode
-
-ก็อป [`.cursor/rules/smskub-sms.mdc`](.cursor/rules/smskub-sms.mdc) ไว้ใน repo (โฟลเดอร์ `.cursor/rules/`).
-Cursor จะโหลดเป็น Project Rule. ต่อ MCP ผ่าน `.cursor/mcp.json`.
-
 ## Antigravity / Cline / Roo / Windsurf และ agent อื่น ๆ
 
 ส่วนใหญ่อ่านมาตรฐาน **`AGENTS.md`** — ก็อป [`AGENTS.md`](AGENTS.md) ไว้ root repo.

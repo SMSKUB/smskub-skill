@@ -1,6 +1,6 @@
 # Install the SMSKUB SMS skill into a target AI tool.
 # Usage: pwsh scripts/install.ps1 <platform>
-#   platforms: claude | claude-skill | gemini | codex | cursor | print
+#   platforms: claude | claude-skill | gemini | codex | print
 param([string]$Platform = "print")
 
 $ErrorActionPreference = "Stop"
@@ -16,15 +16,10 @@ switch ($Platform) {
   "claude"  { Copy-Item "$Root/CLAUDE.md"  "./CLAUDE.md"  -Force; Write-Host "OK copied CLAUDE.md" }
   "gemini"  { Copy-Item "$Root/GEMINI.md"  "./GEMINI.md"  -Force; Write-Host "OK copied GEMINI.md" }
   "codex"   { Copy-Item "$Root/AGENTS.md"  "./AGENTS.md"  -Force; Write-Host "OK copied AGENTS.md" }
-  "cursor"  {
-    New-Item -ItemType Directory -Force -Path "./.cursor/rules" | Out-Null
-    Copy-Item "$Root/.cursor/rules/smskub-sms.mdc" "./.cursor/rules/smskub-sms.mdc" -Force
-    Write-Host "OK copied Cursor rule -> ./.cursor/rules/smskub-sms.mdc"
-  }
   "print"   { Write-Host "Paste the contents of SKILL.md into your AI's instructions field: $Root/SKILL.md" }
   default   {
     Write-Host "Unknown platform: $Platform"
-    Write-Host "Use: claude-skill | claude | gemini | codex | cursor | print"
+    Write-Host "Use: claude-skill | claude | gemini | codex | print"
     exit 1
   }
 }

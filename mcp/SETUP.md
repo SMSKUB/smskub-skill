@@ -7,7 +7,7 @@
 
 **สิ่งที่ต้องเตรียม**
 1. บัญชี SMSKUB + **API Token** — หาได้ที่ **Console → Settings → API Token** (sms-kub.com)
-2. AI client ที่รองรับ MCP — **Claude (Web / Mobile / Desktop)**, **Manus AI**, หรือ client อื่นที่รับ MCP URL ได้ (Cursor, Gemini CLI, Codex ฯลฯ)
+2. AI client ที่รองรับ MCP — **Claude (Web / Mobile / Desktop)**, **Manus AI**, หรือ client อื่นที่รับ MCP URL ได้ (Gemini CLI, Codex ฯลฯ)
 
 **ประกอบ URL ของคุณ** (เปลี่ยน `YOUR_API_TOKEN` เป็น token จริง):
 ```
@@ -34,10 +34,6 @@ https://smskubmcp.com/mcp?token=YOUR_API_TOKEN
 เพิ่ม MCP server ใหม่ → วาง URL เดียวกัน.
 
 ### Client อื่นที่รับ MCP URL (ใช้ URL เดียวกันได้)
-- **Cursor / Crosscode** — `.cursor/mcp.json`:
-  ```json
-  { "mcpServers": { "smskub": { "url": "https://smskubmcp.com/mcp?token=YOUR_API_TOKEN" } } }
-  ```
 - **Gemini CLI** — `settings.json`:
   ```json
   { "mcpServers": { "smskub": { "httpUrl": "https://smskubmcp.com/mcp?token=YOUR_API_TOKEN" } } }

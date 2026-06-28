@@ -48,11 +48,10 @@
 | **Claude Desktop / Projects** | วางเนื้อ [`SKILL.md`](SKILL.md) ลง Instructions |
 | **Gemini CLI** | [`GEMINI.md`](GEMINI.md) |
 | **OpenAI Codex** | [`AGENTS.md`](AGENTS.md) |
-| **Cursor / Crosscode** | [`.cursor/rules/smskub-sms.mdc`](.cursor/rules/smskub-sms.mdc) |
 | **Antigravity / Cline / อื่น ๆ** | [`AGENTS.md`](AGENTS.md) |
 | **ChatGPT / Manus / Groq** | วางเนื้อ [`SKILL.md`](SKILL.md) ลงช่อง Instructions/system |
 
-หรือใช้สคริปต์: `bash scripts/install.sh claude` · `pwsh scripts/install.ps1 claude` (รองรับ `claude|gemini|codex|cursor`)
+หรือใช้สคริปต์: `bash scripts/install.sh claude` · `pwsh scripts/install.ps1 claude` (รองรับ `claude|gemini|codex`)
 
 ### โครง repo · License
 ดู [โครงไฟล์](#repo-layout) ด้านล่าง · License: **MIT** ([`LICENSE`](LICENSE))
@@ -100,11 +99,10 @@ Pick your platform and follow [`INSTALL.md`](INSTALL.md). Quick map:
 | **Claude Desktop / Projects** | paste [`SKILL.md`](SKILL.md) into Instructions |
 | **Gemini CLI** | [`GEMINI.md`](GEMINI.md) |
 | **OpenAI Codex** | [`AGENTS.md`](AGENTS.md) |
-| **Cursor / Crosscode** | [`.cursor/rules/smskub-sms.mdc`](.cursor/rules/smskub-sms.mdc) |
 | **Antigravity / Cline / others** | [`AGENTS.md`](AGENTS.md) |
 | **ChatGPT / Manus / Groq** | paste [`SKILL.md`](SKILL.md) into the Instructions/system field |
 
-Or use the scripts: `bash scripts/install.sh claude` · `pwsh scripts/install.ps1 claude` (supports `claude|gemini|codex|cursor`).
+Or use the scripts: `bash scripts/install.sh claude` · `pwsh scripts/install.ps1 claude` (supports `claude|gemini|codex`).
 
 ---
 
@@ -115,10 +113,9 @@ smskub-skill/
 ├── SKILL.md            # ★ source of truth — every adapter points here
 ├── README.md           # this file (TH + EN)
 ├── INSTALL.md          # detailed per-platform install
-├── AGENTS.md           # universal loader (Codex/Cursor/Antigravity/Cline/…)
+├── AGENTS.md           # universal loader (Codex/Antigravity/Cline/…)
 ├── GEMINI.md           # Gemini CLI loader
 ├── CLAUDE.md           # Claude loader
-├── .cursor/rules/smskub-sms.mdc
 ├── mcp/SETUP.md        # connect the SMSKUB MCP (+ config templates)
 ├── scripts/            # install.sh · install.ps1
 └── LICENSE

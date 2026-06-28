@@ -2,7 +2,7 @@
 name: smskub-sms
 description: Use when the user wants to SEND SMS through SMSKUB and/or write the SMS message itself — pick the send lane (one number / many numbers / scheduled), compose a ≤70-char Thai message that fits a 1–2 credit budget, choose a compliant Sender Name, preview the cost, confirm, then fire and check delivery. Thai/English triggers — "ส่ง SMS", "ยิง SMS", "ส่งข้อความหาลูกค้า", "ส่งเบอร์เดียว", "ส่งหลายเบอร์", "ส่ง SMS จำนวนมาก", "ตั้งเวลาส่ง SMS", "สร้างแคมเปญ SMS", "ช่วยเขียน SMS", "เขียนข้อความ 70 ตัว / 1 เครดิต", "คิด sender name", "เช็คเครดิตแล้วส่ง", "send sms", "blast sms to a list", "sms campaign", "schedule an sms". Composes (condensed copywriting for ≤70 chars), advises the Sender Name, drives the SMSKUB MCP tools (send_message / create_campaign), and ALWAYS runs a safety gate (balance + cost preview + confirm) before sending. Works with the SMSKUB MCP connected, or in compose-only mode without it.
 license: See LICENSE in this repository.
-compatible: [claude, claude-code, gemini, chatgpt, codex, cursor, manus, groq, antigravity, any-mcp-host]
+compatible: [claude, claude-code, gemini, chatgpt, codex, manus, groq, antigravity, any-mcp-host]
 version: 1.0.0
 homepage: https://sms-kub.com
 tags: [smskub, sms, send-sms, mcp, campaign, broadcast, blast, sender-name, sms-copywriting, character-count, credit, segment, marketing-sms, scheduling, safety-gate, pdpa, nbtc, thai-sms]
