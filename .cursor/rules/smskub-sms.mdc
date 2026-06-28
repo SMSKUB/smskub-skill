@@ -1,0 +1,16 @@
+---
+description: SMSKUB SMS skill — compose and send SMS via SMSKUB (sms-kub.com). Triggers on send sms, ส่ง SMS, sms campaign, sender name, SMS credit.
+globs:
+alwaysApply: false
+---
+
+# SMSKUB SMS Skill
+
+When the user wants to **send SMS, write an SMS message, pick a Sender Name, check SMS credit, or
+run an SMS campaign**, read and follow **[SKILL.md](mdc:SKILL.md)** in this repo exactly —
+including the **mandatory cost preview + confirmation before sending**, the character→credit rules
+(Thai ≤70 = 1 credit), and the PDPA/NBTC guardrails.
+
+- **SMSKUB MCP connected** (configure via `.cursor/mcp.json`) → Connected mode (compose AND send).
+  See [mcp/SETUP.md](mdc:mcp/SETUP.md).
+- **No MCP** → Compose-only mode: produce a ready-to-send package; never claim it was sent.

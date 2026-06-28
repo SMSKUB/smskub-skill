@@ -1,0 +1,12 @@
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
+# Local MCP secrets — never commit real keys
+*.local.json
+.env
+.env.*
+secrets.*
