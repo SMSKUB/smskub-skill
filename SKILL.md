@@ -1,6 +1,6 @@
 ---
 name: smskub-sms
-description: Use when the user wants to SEND SMS through SMSKUB and/or write the SMS message itself — pick the send lane (one number / many numbers / scheduled), compose a ≤70-char Thai message that fits a 1–2 credit budget, choose a compliant Sender Name, preview the cost, confirm, then fire and check delivery. Thai/English triggers — "ส่ง SMS", "ยิง SMS", "ส่งข้อความหาลูกค้า", "ส่งเบอร์เดียว", "ส่งหลายเบอร์", "ส่ง SMS จำนวนมาก", "ตั้งเวลาส่ง SMS", "สร้างแคมเปญ SMS", "ช่วยเขียน SMS", "เขียนข้อความ 70 ตัว / 1 เครดิต", "คิด sender name", "เช็คเครดิตแล้วส่ง", "send sms", "blast sms to a list", "sms campaign", "schedule an sms". Composes (condensed copywriting for ≤70 chars), advises the Sender Name, drives the SMSKUB MCP tools (send_message / create_campaign), and ALWAYS runs a safety gate (balance + cost preview + confirm) before sending. Works with the SMSKUB MCP connected, or in compose-only mode without it.
+description: Use when the user wants to SEND SMS through SMSKUB and/or write the SMS message itself — pick the send lane (one number / many numbers / scheduled), compose a ≤70-char Thai message that fits a 1–2 credit budget, choose a compliant Sender Name, preview the cost, confirm, then fire and check delivery. On first use it briefly interviews the business (brand name, type, what they use SMS for) and remembers that profile so it never asks again. Thai/English triggers — "ส่ง SMS", "ยิง SMS", "ส่งข้อความหาลูกค้า", "ส่งเบอร์เดียว", "ส่งหลายเบอร์", "ส่ง SMS จำนวนมาก", "ตั้งเวลาส่ง SMS", "สร้างแคมเปญ SMS", "ช่วยเขียน SMS", "เขียนข้อความ 70 ตัว / 1 เครดิต", "คิด sender name", "เช็คเครดิตแล้วส่ง", "send sms", "blast sms to a list", "sms campaign", "schedule an sms". Composes (condensed copywriting for ≤70 chars), advises the Sender Name, drives the SMSKUB MCP tools (send_message / create_campaign), and ALWAYS runs a safety gate (balance + cost preview + confirm) before sending. Works with the SMSKUB MCP connected, or in compose-only mode without it.
 license: See LICENSE in this repository.
 compatible: [claude, claude-code, gemini, chatgpt, codex, manus, groq, antigravity, any-mcp-host]
 version: 1.0.0
@@ -12,8 +12,8 @@ tags: [smskub, sms, send-sms, mcp, campaign, broadcast, blast, sender-name, sms-
 
 A portable AI skill that **composes and sends SMS through SMSKUB** (sms-kub.com, an
 NBTC-licensed SMS gateway for Thai businesses). Drop it into any AI assistant — it runs the
-whole loop: **คิดข้อความ → เลือก Sender Name → เลือกวิธีส่ง → ยิงผ่าน SMSKUB MCP → เช็คผล** — and it
-**never sends without a cost preview + confirmation.**
+whole loop: **รู้จักธุรกิจ (ครั้งแรก) → คิดข้อความ → เลือก Sender Name → เลือกวิธีส่ง → ยิงผ่าน SMSKUB MCP → เช็คผล** —
+it **interviews the business once and remembers it**, and **never sends without a cost preview + confirmation.**
 
 **Core principle:** *An SMS is ~70 Thai characters and 1 credit per recipient — every word and
 every baht is accountable.* So the skill always (1) keeps the message inside a stated credit
@@ -58,12 +58,42 @@ smskub-sms  ◄── compose · price · confirm · send
 
 ถ้างานเป็น copy ยาว (landing page, อีเมล, โฆษณา) → นั่นไม่ใช่งานของสกิลนี้ (สกิลนี้ทำ SMS สั้น).
 
+## 🪪 ครั้งแรก — รู้จักธุรกิจก่อน (Business Profile)
+
+**สำคัญ:** ครั้งแรกที่ใช้ **อย่าเพิ่งแนะนำ/เขียนข้อความทันที** — **ถามโปรไฟล์ธุรกิจสั้น ๆ ก่อน** แล้วจำไว้ใช้ทุกครั้ง
+เพื่อให้ SMS ตรงแบรนด์และลูกค้าจริง ไม่ใช่ข้อความกลาง ๆ.
+
+**ถ้ายังไม่รู้โปรไฟล์ → ถามก่อน** (ถามเฉพาะที่ขาด สั้น ๆ เป็นกันเอง):
+1. **ชื่อแบรนด์/ธุรกิจ** อะไร? (ใช้เป็นฐาน Sender Name ด้วย)
+2. **ธุรกิจประเภทไหน?** (เช่น ร้านออนไลน์ · คลินิก · ร้านอาหาร · คอร์สเรียน · อสังหา · การเงิน)
+3. **ส่ง SMS ไปทำอะไรเป็นหลัก?** (โปรโมชัน · ยืนยันออเดอร์/จัดส่ง · แจ้งเตือน/นัดหมาย · OTP)
+4. **ลูกค้าเป็นใคร + อยากได้โทนแบบไหน?** (ทางการ / เป็นกันเอง)
+5. **มี Sender Name ที่อนุมัติแล้วไหม?** ใช้ภาษาไทยหรืออังกฤษในข้อความ?
+
+> ผู้ใช้บอก "ข้ามไปก่อน" ได้ — ใช้ค่า default แล้วถามเติมทีหลัง. แต่ **อย่างน้อยต้องรู้ชื่อแบรนด์ + ใช้ทำอะไร** ก่อนเขียนจริง.
+
+**สรุปเป็น Business Profile** (โชว์ให้ผู้ใช้ยืนยัน):
+```
+📋 SMSKUB Business Profile
+- แบรนด์:        <ชื่อ>
+- ประเภทธุรกิจ:   <...>
+- ใช้ SMS เพื่อ:   <...>
+- กลุ่มลูกค้า:     <...>
+- โทน:           <ทางการ / เป็นกันเอง>
+- Sender Name:   <ชื่อที่อนุมัติ/จะขอ>   | ภาษา: ไทย / อังกฤษ
+```
+
+**🧠 จำไว้ (memory) — ทำให้ไม่ต้องถามซ้ำ:**
+- ถ้า AI ที่ใช้ **มีความจำถาวร (memory)** → บันทึก Business Profile ไว้ แล้วครั้งต่อไปใช้ได้เลยไม่ต้องถาม.
+- ถ้า **ไม่มี memory** → บอกผู้ใช้ให้ **ก็อปบล็อก Business Profile ด้านบนไปวางต่อท้าย `SKILL.md` ในช่อง Instructions** (เท่านี้ก็จำข้ามครั้งได้).
+- ครั้งถัด ๆ ไป **ถ้ารู้โปรไฟล์แล้ว ห้ามถามซ้ำ** — ใช้เลย และอัปเดตเมื่อผู้ใช้แจ้งเปลี่ยน.
+
 ## How to run — the send loop
 
 ทำตามลำดับ. ข้ามขั้นที่ผู้ใช้ให้ข้อมูลมาแล้วได้ แต่ **ห้ามข้ามขั้น 5–6 (cost preview + confirm)**.
 
 ### STEP 1 — Intake (รู้ก่อนว่าจะส่งอะไร หาใคร)
-ถามเฉพาะที่ขาด:
+**ก่อนอื่น:** ยังไม่มี **Business Profile**? → ทำหัวข้อ "🪪 ครั้งแรก" ด้านบนก่อน. มีแล้ว → ใช้โปรไฟล์นั้นตั้งต้น (แบรนด์/โทน/Sender) แล้วถามเฉพาะรายละเอียดงานนี้:
 1. **ส่งหาใคร / กี่เบอร์** → ตัดสิน lane: 1–ไม่กี่เบอร์ ส่งทันที = **A**; หลายเบอร์ / ตั้งเวลา = **B**.
 2. **เนื้อหา/เป้าหมาย** ของข้อความ (โปรโมชัน, แจ้งเตือน, ยืนยันนัด, ฯลฯ) + มีลิงก์ไหม.
 3. **Sender Name** ที่จะใช้ (ถ้ายังไม่มี → STEP 3 ช่วยคิด/เช็ค).
@@ -206,6 +236,8 @@ SMS ไม่มีที่ให้กาง AIDA เต็ม — บีบ�
 
 | พลาด | แก้ |
 |---|---|
+| แนะนำ/เขียนข้อความทันทีโดยไม่รู้จักธุรกิจ | **ครั้งแรกถาม Business Profile ก่อน** (แบรนด์/ประเภท/ใช้ทำอะไร) แล้วจำไว้ |
+| ถาม Business Profile ซ้ำทุกครั้ง | รู้แล้วห้ามถามซ้ำ — เก็บใน memory หรือให้ผู้ใช้แปะไว้ใน Instructions |
 | ยิงก่อนโชว์ cost/ขอ confirm | **บังคับ** STEP 5–6 เสมอ — ไม่มี confirm ไม่ส่ง |
 | อ้างว่าส่งแล้วทั้งที่ไม่มี MCP | ไม่มี SMSKUB tools = **Compose-only** เท่านั้น อย่าแกล้งส่ง |
 | ลืมว่ามีไทยปน = ตก 70 ตัว/เครดิต | ใช้ตัวนับ; มีไทยแม้ตัวเดียว → โหมด 70 |
