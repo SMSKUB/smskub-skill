@@ -72,23 +72,6 @@ https://smskubmcp.com/mcp?token=YOUR_API_TOKEN
 
 ---
 
-## C) Self-host (Clone + Build) — สำหรับนักพัฒนา
-
-```bash
-git clone https://github.com/tklom/smskub-mcp.git
-cd smskub-mcp
-npm install
-npm run build
-```
-สร้างไฟล์ `.env`:
-```
-SMSKUB_TOKEN=your_api_token_here
-```
-- **STDIO** (Claude Desktop): `npm start` แล้วชี้ config ไปที่ `node /absolute/path/to/smskub-mcp/dist/index.js` (env `SMSKUB_TOKEN`).
-- **HTTP** (Desktop/Mobile/Web): `npm run serve` → เปิดที่ `http://localhost:3000/mcp` (deploy ขึ้น Render / Railway / Fly.io / Hostinger ได้ แล้วใช้ URL ของคุณแทน).
-
----
-
 ## ทดสอบว่าใช้งานได้
 
 พิมพ์ใน AI: **"ยอดเครดิต SMS ของฉันคงเหลือเท่าไหร่"**
