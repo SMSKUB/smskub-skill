@@ -38,24 +38,29 @@
 
 ต่อ MCP เพื่อส่งจริง — ดู [`mcp/SETUP.md`](mcp/SETUP.md).
 
-### ⚡ ติดตั้งใน 2 นาที (ไม่ต้องใช้ terminal)
+### 🚀 วิธีติดตั้ง (2 ขั้น)
 
-**① ต่อ SMSKUB เข้ากับ AI** — เพื่อให้ส่ง SMS ได้จริง
-เอา API Token (Console → Settings → API Token) มาใส่ใน URL นี้:
-```
-https://smskubmcp.com/mcp?token=YOUR_API_TOKEN
-```
-แล้ววางในเมนู connector ของแอป:
-- **Claude (เว็บ/มือถือ/Desktop):** Settings → Connectors → *Add custom connector* → วาง URL
-- **Manus AI:** Add MCP server → วาง URL
+มีแค่ 2 อย่าง: **(1) ต่อ SMSKUB** ให้ส่ง SMS ได้ · **(2) ใส่สกิล** ให้ AI เขียนเก่ง.
 
-**② ใส่ "สมอง" ให้ AI เขียน SMS เก่ง** — แนะนำ (ไม่บังคับ)
-เปิด [`SKILL.md`](SKILL.md) → ก็อปทั้งไฟล์ → วางในช่อง **Project / Custom Instructions** ของ AI.
+#### ขั้นที่ 1 — ต่อ SMSKUB เข้ากับ AI *(เพื่อให้ส่ง SMS ได้จริง)*
+ทำตามเอกสารทีละขั้น 👉 **📄 [วิธีต่อ SMSKUB MCP](mcp/SETUP.md)**
+*(ยังไม่ต่อก็ใช้ได้ — AI จะช่วยเขียน SMS ให้พร้อมส่ง แล้วคุณเอาไปวางในระบบเอง)*
 
-**✅ ทดสอบ:** พิมพ์ *"เช็คเครดิต SMS ให้หน่อย"* — ถ้าได้ยอดคงเหลือ = พร้อมใช้! 🎉
+#### ขั้นที่ 2 — ใส่ "สกิล" ให้ AI *(ให้เขียน SMS เก่ง คุมเครดิต ปลอดภัย)*
+สกิลคือ **ไฟล์ข้อความไฟล์เดียว** ชื่อ [`SKILL.md`](SKILL.md) — แค่ก็อปไปวาง:
 
-> 🛠️ แพลตฟอร์มอื่น (Gemini, ChatGPT, Codex, Claude Code…) + วิธีละเอียด → [`INSTALL.md`](INSTALL.md)
-> · วิธีต่อ MCP แบบอื่น (npx) → [`mcp/SETUP.md`](mcp/SETUP.md) · License: **MIT** ([`LICENSE`](LICENSE))
+1. เปิดไฟล์ **[`SKILL.md`](SKILL.md)** → เลือกทั้งหมด (`Ctrl+A`) → **ก็อป** (`Ctrl+C`)
+2. เปิด AI ที่คุณใช้ → หา **ช่องใส่คำสั่ง (Instructions)** → **วาง** (`Ctrl+V`) → บันทึก
+
+   | AI ที่ใช้ | เอาไปวางตรงไหน |
+   |---|---|
+   | **Claude** (claude.ai) | สร้าง **Project** ใหม่ → ช่อง **Instructions** |
+   | **ChatGPT** | สร้าง **GPT** หรือ Project → ช่อง **Instructions** |
+   | **Manus / แอปอื่น** | ช่อง **System / Knowledge / คำสั่ง** |
+
+3. เสร็จ! ลองพิมพ์ *"ช่วยเขียน SMS โปรลด 20% หน่อย"* 🎉
+
+> 👨‍💻 ใช้เครื่องมือสาย dev (Claude Code, Gemini CLI, Codex)? → ดู [`INSTALL.md`](INSTALL.md)
 
 ---
 
@@ -90,24 +95,29 @@ Thai businesses** — reliable delivery with round-the-clock support.
 
 Connect the MCP to send for real — see [`mcp/SETUP.md`](mcp/SETUP.md).
 
-### ⚡ Install in 2 minutes (no terminal)
+### 🚀 How to install (2 steps)
 
-**① Connect SMSKUB to your AI** — so it can actually send SMS
-Take your API Token (Console → Settings → API Token) and put it in this URL:
-```
-https://smskubmcp.com/mcp?token=YOUR_API_TOKEN
-```
-Then paste it into your app's connector menu:
-- **Claude (web/mobile/Desktop):** Settings → Connectors → *Add custom connector* → paste the URL
-- **Manus AI:** Add MCP server → paste the URL
+Just two things: **(1) connect SMSKUB** so it can send SMS · **(2) add the skill** so the AI writes well.
 
-**② Give your AI the "brain" to write great SMS** — recommended (optional)
-Open [`SKILL.md`](SKILL.md) → copy the whole file → paste it into your AI's **Project / Custom Instructions**.
+#### Step 1 — Connect SMSKUB to your AI *(so it can actually send SMS)*
+Follow the step-by-step guide 👉 **📄 [Connect the SMSKUB MCP](mcp/SETUP.md)**
+*(Skip it and the AI still drafts ready-to-send SMS for you to paste into your system.)*
 
-**✅ Test:** type *"What's my SMS credit balance?"* — if it returns a balance, you're live! 🎉
+#### Step 2 — Add the "skill" to your AI *(so it writes great SMS, manages credits, stays safe)*
+The skill is **one text file**, [`SKILL.md`](SKILL.md) — just copy & paste it:
 
-> 🛠️ Other platforms (Gemini, ChatGPT, Codex, Claude Code…) & detailed steps → [`INSTALL.md`](INSTALL.md)
-> · other ways to connect the MCP (npx) → [`mcp/SETUP.md`](mcp/SETUP.md) · License: **MIT** ([`LICENSE`](LICENSE))
+1. Open **[`SKILL.md`](SKILL.md)** → select all (`Ctrl+A`) → **copy** (`Ctrl+C`)
+2. Open your AI → find the **Instructions** box → **paste** (`Ctrl+V`) → save
+
+   | Your AI | Where to paste |
+   |---|---|
+   | **Claude** (claude.ai) | Create a **Project** → **Instructions** field |
+   | **ChatGPT** | Create a **GPT** or Project → **Instructions** field |
+   | **Manus / other apps** | The **System / Knowledge / instructions** box |
+
+3. Done! Try typing *"Write me an SMS for a 20% off promo"* 🎉
+
+> 👨‍💻 Using dev tools (Claude Code, Gemini CLI, Codex)? → see [`INSTALL.md`](INSTALL.md)
 
 ---
 
