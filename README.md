@@ -60,7 +60,7 @@
 
 3. เสร็จ! ลองพิมพ์ *"ช่วยเขียน SMS โปรลด 20% หน่อย"* 🎉
 
-> 👨‍💻 ใช้เครื่องมือสาย dev (Claude Code, Gemini CLI, Codex)? → ดู [`INSTALL.md`](INSTALL.md)
+> 👨‍💻 ใช้เครื่องมือสาย dev (Claude Code, Gemini CLI, Codex)? ก็ใช้ไฟล์เดียวกัน — ชี้ agent ไปอ่าน `SKILL.md` หรือก็อปใส่ context ได้เลย
 
 ---
 
@@ -117,7 +117,7 @@ The skill is **one text file**, [`SKILL.md`](SKILL.md) — just copy & paste it:
 
 3. Done! Try typing *"Write me an SMS for a 20% off promo"* 🎉
 
-> 👨‍💻 Using dev tools (Claude Code, Gemini CLI, Codex)? → see [`INSTALL.md`](INSTALL.md)
+> 👨‍💻 Using dev tools (Claude Code, Gemini CLI, Codex)? Same file — point your agent at `SKILL.md` or copy it into context.
 
 ---
 
@@ -125,19 +125,11 @@ The skill is **one text file**, [`SKILL.md`](SKILL.md) — just copy & paste it:
 
 ```
 smskub-skill/
-├── SKILL.md            # ★ source of truth — every adapter points here
-├── README.md           # this file (TH + EN)
-├── INSTALL.md          # detailed per-platform install
-├── AGENTS.md           # universal loader (Codex/Antigravity/Cline/…)
-├── GEMINI.md           # Gemini CLI loader
-├── CLAUDE.md           # Claude loader
-├── mcp/SETUP.md        # connect the SMSKUB MCP (+ config templates)
-├── scripts/            # install.sh · install.ps1
+├── SKILL.md       # ★ the skill — copy this into your AI
+├── README.md      # this file (TH + EN)
+├── mcp/SETUP.md   # how to connect the SMSKUB MCP
 └── LICENSE
 ```
-
-**Single source of truth:** edit the skill in `SKILL.md` only. The adapter files are thin loaders that
-tell the AI to read & follow `SKILL.md`. Platforms that can't read sibling files → paste the whole `SKILL.md`.
 
 ## License
 
@@ -145,4 +137,4 @@ MIT — see [`LICENSE`](LICENSE).
 
 ---
 
-*Built by SMSKUB · [sms-kub.com](https://sms-kub.com) · install on any AI — see [`INSTALL.md`](INSTALL.md)*
+*Built by SMSKUB · [sms-kub.com](https://sms-kub.com)*

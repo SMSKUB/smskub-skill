@@ -221,4 +221,4 @@ SMS ไม่มีที่ให้กาง AIDA เต็ม — บีบ�
 - **v2+ — personalize จากไฟล์/Tag**, retarget (ส่งซ้ำเฉพาะเบอร์สำเร็จ), SMS Tracking ย่อลิงก์ + วัดคลิกรายบุคคล.
 
 ---
-*SMSKUB SMS Skill · พัฒนาโดย SMSKUB (sms-kub.com) · ติดตั้งบน AI ตัวไหนก็ได้ — ดู `INSTALL.md`*
+*SMSKUB SMS Skill · พัฒนาโดย SMSKUB (sms-kub.com) · ติดตั้งบน AI ตัวไหนก็ได้ — ก็อปไฟล์นี้ไปวางในช่อง Instructions*
