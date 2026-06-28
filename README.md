@@ -38,23 +38,24 @@
 
 ต่อ MCP เพื่อส่งจริง — ดู [`mcp/SETUP.md`](mcp/SETUP.md).
 
-### ติดตั้ง
+### ⚡ ติดตั้งใน 2 นาที (ไม่ต้องใช้ terminal)
 
-เลือกแพลตฟอร์มแล้วทำตาม [`INSTALL.md`](INSTALL.md) — สรุปเร็ว:
+**① ต่อ SMSKUB เข้ากับ AI** — เพื่อให้ส่ง SMS ได้จริง
+เอา API Token (Console → Settings → API Token) มาใส่ใน URL นี้:
+```
+https://smskubmcp.com/mcp?token=YOUR_API_TOKEN
+```
+แล้ววางในเมนู connector ของแอป:
+- **Claude (เว็บ/มือถือ/Desktop):** Settings → Connectors → *Add custom connector* → วาง URL
+- **Manus AI:** Add MCP server → วาง URL
 
-| แพลตฟอร์ม | ไฟล์ |
-|---|---|
-| **Claude Code** | วาง skill ที่ `~/.claude/skills/smskub-sms/SKILL.md` หรือใช้ [`CLAUDE.md`](CLAUDE.md) |
-| **Claude Desktop / Projects** | วางเนื้อ [`SKILL.md`](SKILL.md) ลง Instructions |
-| **Gemini CLI** | [`GEMINI.md`](GEMINI.md) |
-| **OpenAI Codex** | [`AGENTS.md`](AGENTS.md) |
-| **Antigravity / Cline / อื่น ๆ** | [`AGENTS.md`](AGENTS.md) |
-| **ChatGPT / Manus / Groq** | วางเนื้อ [`SKILL.md`](SKILL.md) ลงช่อง Instructions/system |
+**② ใส่ "สมอง" ให้ AI เขียน SMS เก่ง** — แนะนำ (ไม่บังคับ)
+เปิด [`SKILL.md`](SKILL.md) → ก็อปทั้งไฟล์ → วางในช่อง **Project / Custom Instructions** ของ AI.
 
-หรือใช้สคริปต์: `bash scripts/install.sh claude` · `pwsh scripts/install.ps1 claude` (รองรับ `claude|gemini|codex`)
+**✅ ทดสอบ:** พิมพ์ *"เช็คเครดิต SMS ให้หน่อย"* — ถ้าได้ยอดคงเหลือ = พร้อมใช้! 🎉
 
-### โครง repo · License
-ดู [โครงไฟล์](#repo-layout) ด้านล่าง · License: **MIT** ([`LICENSE`](LICENSE))
+> 🛠️ แพลตฟอร์มอื่น (Gemini, ChatGPT, Codex, Claude Code…) + วิธีละเอียด → [`INSTALL.md`](INSTALL.md)
+> · วิธีต่อ MCP แบบอื่น (npx) → [`mcp/SETUP.md`](mcp/SETUP.md) · License: **MIT** ([`LICENSE`](LICENSE))
 
 ---
 
@@ -89,20 +90,24 @@ Thai businesses** — reliable delivery with round-the-clock support.
 
 Connect the MCP to send for real — see [`mcp/SETUP.md`](mcp/SETUP.md).
 
-### Install
+### ⚡ Install in 2 minutes (no terminal)
 
-Pick your platform and follow [`INSTALL.md`](INSTALL.md). Quick map:
+**① Connect SMSKUB to your AI** — so it can actually send SMS
+Take your API Token (Console → Settings → API Token) and put it in this URL:
+```
+https://smskubmcp.com/mcp?token=YOUR_API_TOKEN
+```
+Then paste it into your app's connector menu:
+- **Claude (web/mobile/Desktop):** Settings → Connectors → *Add custom connector* → paste the URL
+- **Manus AI:** Add MCP server → paste the URL
 
-| Platform | File |
-|---|---|
-| **Claude Code** | drop the skill at `~/.claude/skills/smskub-sms/SKILL.md`, or use [`CLAUDE.md`](CLAUDE.md) |
-| **Claude Desktop / Projects** | paste [`SKILL.md`](SKILL.md) into Instructions |
-| **Gemini CLI** | [`GEMINI.md`](GEMINI.md) |
-| **OpenAI Codex** | [`AGENTS.md`](AGENTS.md) |
-| **Antigravity / Cline / others** | [`AGENTS.md`](AGENTS.md) |
-| **ChatGPT / Manus / Groq** | paste [`SKILL.md`](SKILL.md) into the Instructions/system field |
+**② Give your AI the "brain" to write great SMS** — recommended (optional)
+Open [`SKILL.md`](SKILL.md) → copy the whole file → paste it into your AI's **Project / Custom Instructions**.
 
-Or use the scripts: `bash scripts/install.sh claude` · `pwsh scripts/install.ps1 claude` (supports `claude|gemini|codex`).
+**✅ Test:** type *"What's my SMS credit balance?"* — if it returns a balance, you're live! 🎉
+
+> 🛠️ Other platforms (Gemini, ChatGPT, Codex, Claude Code…) & detailed steps → [`INSTALL.md`](INSTALL.md)
+> · other ways to connect the MCP (npx) → [`mcp/SETUP.md`](mcp/SETUP.md) · License: **MIT** ([`LICENSE`](LICENSE))
 
 ---
 
